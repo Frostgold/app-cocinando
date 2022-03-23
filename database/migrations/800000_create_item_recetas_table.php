@@ -18,11 +18,9 @@ return new class extends Migration
             $table->string('cantidad_prod');
             $table->timestamps();
 
-            $table->bigInteger('receta_id')->unsigned()->change()->default(2);
-            $table->foreign('receta_id')->references('id')->on('recetas');
+            $table->foreignId('receta_id')->constrained();
 
-            $table->bigInteger('producto_id')->unsigned()->change()->default(2);
-            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->foreignId('producto_id')->constrained();
         });
     }
 
