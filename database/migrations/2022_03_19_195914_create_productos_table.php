@@ -15,7 +15,13 @@ return new class extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
+            $table->integer('codigo');
+            $table->bigInteger('user_id')->unsigned()->change()->default(2);
+            $table->string('nombre');
+            $table->string('descripcion');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
