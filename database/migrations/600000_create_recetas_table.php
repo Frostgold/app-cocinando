@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('descripcion');
             $table->string('tiempo_est');
             $table->timestamps();
+
+            $table->foreignId('user_id')->constrained();
         });
     }
 
